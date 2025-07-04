@@ -1,11 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { slides } from "../../lib/data";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import { HiOutlineArrowLeft, HiOutlineArrowRight } from "react-icons/hi";
+import { slides } from "../../lib/data";
 import BaseButton from "../ui/BaseButton";
 import { SplitText } from "../ui/SplitText";
 
@@ -23,7 +23,7 @@ const Hero = () => {
   }, [currentSlide]);
 
   const contentVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0.7, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
@@ -32,7 +32,7 @@ const Hero = () => {
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0.7, y: 20 },
     visible: { opacity: 1, y: 0 },
   };
 
@@ -40,31 +40,7 @@ const Hero = () => {
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0 w-full h-full">
         {/* Previous Slide Fading Out */}
-        <motion.div
-          key={`prev-${prevSlide}`}
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${slides[prevSlide].background})` }}
-          initial={{ opacity: 1 }}
-          animate={{ opacity: 0 }}
-          transition={{ duration: 0.8 }}
-        />
-
-        {/* Current Slide */}
-        <motion.div
-          key={`current-${currentSlide}`}
-          className="absolute inset-0 bg-cover bg-center pt-12 lg:pt-0"
-          style={{ backgroundImage: `url(${slides[currentSlide].background})` }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-        >
-          <div
-            className="absolute inset-0 z-10 hidden lg:block bg-black/60"
-            style={{
-              clipPath: "url(#rounded-cutout)",
-              WebkitClipPath: "url(#rounded-cutout)",
-            }}
-          />
+        <div>
           <svg
             className="absolute inset-0 z-15 hidden lg:block pointer-events-none w-full h-full"
             viewBox="0 0 1 1"
@@ -86,6 +62,33 @@ const Hero = () => {
               </clipPath>
             </defs>
           </svg>
+        </div>
+        <motion.div
+          key={`prev-${prevSlide}`}
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${slides[prevSlide].background})` }}
+          initial={{ opacity: 0.7 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
+        />
+
+        {/* Current Slide */}
+        <motion.div
+          key={`current-${currentSlide}`}
+          className="absolute inset-0 bg-cover bg-center pt-12 lg:pt-0"
+          style={{ backgroundImage: `url(${slides[currentSlide].background})` }}
+          initial={{ opacity: 0.7 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
+        >
+          <div
+            className="absolute inset-0 z-10 hidden lg:block bg-black/60"
+            style={{
+              clipPath: "url(#rounded-cutout)",
+              WebkitClipPath: "url(#rounded-cutout)",
+            }}
+          />
+
           <div className="relative z-20 py-8 size-full flex flex-col items-center justify-center text-center text-white">
             <motion.h1
               variants={contentVariants}

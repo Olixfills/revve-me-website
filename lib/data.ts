@@ -56,6 +56,8 @@ const heroBackground = [
   ImageAssets.HeroImage2.src,
   ImageAssets.HeroImage3.src,
   ImageAssets.HeroImage4.src,
+  ImageAssets.HeroImage5.src,
+  ImageAssets.HeroImage6.src,
 ];
 
 export const slides = [
@@ -133,6 +135,46 @@ export const slides = [
         time: "Today, 3:15 PM",
         description: "Airtime top-up",
         amount: "-₦17,000",
+      },
+    },
+    rightSection: {
+      country: "Kenya",
+    },
+  },
+  {
+    background: heroBackground[4],
+    leftSection: {
+      country: "Kenya",
+    },
+    middleSection: {
+      amount: "+KES 10,000",
+      flag: ImageAssets.KenyaFlag,
+      reverseOrder: false,
+      transfer: {
+        image: ImageAssets.GTB,
+        time: "Today, 11:28 AM",
+        description: "Paid at GTB",
+        amount: "+KES 10,000",
+      },
+    },
+    rightSection: {
+      country: "Nigeria",
+    },
+  },
+  {
+    background: heroBackground[5],
+    leftSection: {
+      country: "Cameroon",
+    },
+    middleSection: {
+      amount: "+XAF 10,000",
+      flag: ImageAssets.CameroonFlag,
+      reverseOrder: true,
+      transfer: {
+        image: ImageAssets.Absa,
+        time: "Today, 9:45 PM",
+        description: "Online transaction",
+        amount: "+XAF 10,000",
       },
     },
     rightSection: {
